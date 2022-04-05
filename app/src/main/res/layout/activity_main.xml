@@ -40,14 +40,16 @@
         android:textColor="#FFFF"
         android:layout_marginTop="20dp"
         android:text="Create"></androidx.appcompat.widget.AppCompatButton>
-  <androidx.appcompat.widget.AppCompatImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/createBitMap"
-      android:layout_marginTop="20dp"
-      android:layout_centerHorizontal="true"
-      android:src="@drawable/ic_launcher_background"
-      android:id="@+id/imageBitmap"></androidx.appcompat.widget.AppCompatImageView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageBitmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createBitMap"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_launcher_background"></androidx.appcompat.widget.AppCompatImageView>
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

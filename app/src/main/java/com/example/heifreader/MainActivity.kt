@@ -41,9 +41,14 @@ class MainActivity : AppCompatActivity() {
       //Creating a customised BitMap and showing it in imageView
     private fun createBitmap() {
         val bm:Bitmap = createBitmap(100,100,Bitmap.Config.ARGB_8888)
-        val canvas:Canvas = Canvas(bm)
-        canvas.drawColor(Color.BLUE)
+        val canvas = Canvas(bm)
+        canvas.drawColor(Color.MAGENTA)
+          binding.imageBitmap.visibility = View.VISIBLE
         binding.imageBitmap.setImageBitmap(bm)
+          canvas.translate(20f,25f)
+          ObjectAnimator.ofFloat(binding.imageBitmap,"translationX",110f)
+              .setDuration(500)
+              .start()
     }
 
     //Setting drawable Image into imageview programmatically
@@ -53,6 +58,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.image1.visibility = View.VISIBLE
         binding.image1.setImageDrawable(drawable)
+
+    }
+
+    fun shakyAnimation(){
 
     }
 
