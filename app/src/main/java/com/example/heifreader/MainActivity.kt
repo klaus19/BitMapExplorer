@@ -5,6 +5,8 @@ import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.graphics.*
 import android.graphics.Bitmap.createBitmap
+import android.graphics.BlendMode.COLOR_BURN
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.health.HealthStats
@@ -12,6 +14,7 @@ import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.example.heifreader.databinding.ActivityMainBinding
 import com.google.android.material.circularreveal.CircularRevealRelativeLayout
 
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var canvas: Canvas
 
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,17 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.imageBitmap.setOnTouchListener { _, event ->
             if (event!!.action == MotionEvent.ACTION_MOVE) {
-                canvas.drawColor(Color.parseColor("#bf5f82"))
+              canvas.drawColor(Color.parseColor("#bf5f82"))
                 ObjectAnimator.ofFloat(binding.imageBitmap, "translationY", 110f)
                     .setDuration(1000)
                     .start()
 
             }
-
-
             true
-        }
 
+        }
 
     }
 
@@ -77,6 +79,8 @@ class MainActivity : AppCompatActivity() {
         binding.image1.setImageDrawable(drawable)
 
     }*/
+
+
 
 
 
