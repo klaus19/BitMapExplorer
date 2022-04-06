@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.LinearInterpolator
 import androidx.annotation.RequiresApi
 import com.example.heifreader.databinding.ActivityMainBinding
 
@@ -21,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var bm: Bitmap
     lateinit var canvas: Canvas
+   // lateinit var newBmp: Bitmap
 
 
 
@@ -40,16 +40,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.createBitMap.setOnClickListener {
             createBitmap()
+
+            diagonalCarrom(binding.imageBitmap)
         }
 
         binding.imageBitmap.setOnTouchListener { _, event ->
             if (event!!.action == MotionEvent.ACTION_MOVE) {
-                val p = Paint()
+                val p = Paint(Color.GREEN)
                 canvas.drawCircle(50f, 50f, 25f, p)
-              //  ObjectAnimator.ofFloat(binding.imageBitmap, "translationY", 110f)
-                //    .setDuration(1000)
-                  //  .start()
-              diagonalCarrom(binding.imageBitmap)
+                ObjectAnimator.ofFloat(binding.imageBitmap, "translationX", -110f)
+                    .setDuration(1000)
+                    .start()
+
             }
             true
 
@@ -80,8 +82,10 @@ private fun settingDrawableImage() {
     //Transition through diagonally
     private fun diagonalCarrom(v:View) {
         val animatorXY = AnimatorSet()
+
+        canvas.drawColor(Color.parseColor("#5c007a"))
         val y:ObjectAnimator = ObjectAnimator.ofFloat(v,"translationY",v.y,110f)
-        val x:ObjectAnimator = ObjectAnimator.ofFloat(v,"translationX",v.x,-110f)
+        val x:ObjectAnimator = ObjectAnimator.ofFloat(v,"translationX",v.x,110f)
 
         animatorXY.playTogether(x,y)
         animatorXY.duration = 1000
