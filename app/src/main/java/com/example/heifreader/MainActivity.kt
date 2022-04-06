@@ -1,26 +1,22 @@
 package com.example.heifreader
 
 
+
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.graphics.*
 import android.graphics.Bitmap.createBitmap
-import android.graphics.BlendMode.COLOR_BURN
-import android.graphics.Color.RED
+import android.graphics.Color.*
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.health.HealthStats
-import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
+import android.view.animation.Animation
 import androidx.annotation.RequiresApi
-import androidx.core.graphics.withRotation
 import com.example.heifreader.databinding.ActivityMainBinding
-import com.google.android.material.circularreveal.CircularRevealRelativeLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
 
     lateinit var binding: ActivityMainBinding
@@ -46,14 +42,17 @@ class MainActivity : AppCompatActivity() {
             createBitmap()
        }
 
+         //Code to make onTouchListener Move
+
         binding.imageBitmap.setOnTouchListener { _, event ->
             if (event!!.action == MotionEvent.ACTION_MOVE) {
                 val p = Paint()
-              canvas.drawCircle(50f,50f,25f,p)
+              //  val rf = RectF()
+             canvas.drawCircle(50f,50f,25f,p)
+               // canvas.drawArc(rf,100f,50f,true,p)
                 ObjectAnimator.ofFloat(binding.imageBitmap, "translationY", 110f)
                     .setDuration(1000)
                     .start()
-
             }
             true
 
@@ -63,16 +62,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-      //Creating a customised BitMap and showing it in imageView
+
+
+    //Creating a customised BitMap and showing it in imageView
     private fun createBitmap() {
          bm = createBitmap(100,100,Bitmap.Config.ARGB_8888)
         canvas = Canvas(bm)
-        canvas.drawColor(Color.parseColor("#fff9c4"))
+        canvas.drawColor(parseColor("#fff9c4"))
           binding.imageBitmap.visibility = View.VISIBLE
         binding.imageBitmap.setImageBitmap(bm)
           ObjectAnimator.ofFloat(binding.imageBitmap,"translationX",110f)
               .setDuration(500)
               .start()
+    }
     }
 
     /*Setting drawable Image into imageview programmatically
@@ -85,12 +87,3 @@ class MainActivity : AppCompatActivity() {
 
     }*/
 
-
-
-
-
-
-
-
-
-}
