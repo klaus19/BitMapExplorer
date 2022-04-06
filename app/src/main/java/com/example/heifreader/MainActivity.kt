@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.graphics.*
 import android.graphics.Bitmap.createBitmap
 import android.graphics.BlendMode.COLOR_BURN
+import android.graphics.Color.RED
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.core.graphics.withRotation
 import com.example.heifreader.databinding.ActivityMainBinding
 import com.google.android.material.circularreveal.CircularRevealRelativeLayout
 
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.imageBitmap.setOnTouchListener { _, event ->
             if (event!!.action == MotionEvent.ACTION_MOVE) {
-              canvas.drawColor(Color.parseColor("#bf5f82"))
+                val p = Paint()
+              canvas.drawCircle(50f,50f,25f,p)
                 ObjectAnimator.ofFloat(binding.imageBitmap, "translationY", 110f)
                     .setDuration(1000)
                     .start()
@@ -55,6 +58,8 @@ class MainActivity : AppCompatActivity() {
             true
 
         }
+
+
 
     }
 
