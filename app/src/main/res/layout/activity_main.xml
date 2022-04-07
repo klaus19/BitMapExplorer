@@ -4,7 +4,6 @@
     android:id="@+id/circularreveal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#827717"
     tools:context=".MainActivity"
     >
     <androidx.appcompat.widget.AppCompatButton
@@ -26,6 +25,8 @@
         android:layout_marginTop="20dp"
         android:visibility="gone"
         android:src="@drawable/ic_launcher_background"></androidx.appcompat.widget.AppCompatImageView>
+
+
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

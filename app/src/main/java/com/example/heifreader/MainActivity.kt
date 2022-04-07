@@ -4,6 +4,7 @@ package com.example.heifreader
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.graphics.*
 import android.graphics.Bitmap.createBitmap
@@ -62,8 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
     }
+
 
     //Creating a customised BitMap and showing it in imageView
     private fun createBitmap() {
@@ -95,7 +96,6 @@ private fun settingDrawableImage() {
         animatorXY.playTogether(x,y)
         animatorXY.duration = 1000
         animatorXY.start()
-
     }
 }
 
